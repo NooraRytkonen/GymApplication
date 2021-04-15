@@ -1,4 +1,4 @@
-package hh.swd.harjoitustyo.GymApplication;
+package hh.swd.harjoitustyo.test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
