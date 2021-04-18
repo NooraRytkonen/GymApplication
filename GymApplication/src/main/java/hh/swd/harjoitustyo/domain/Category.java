@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -15,8 +17,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Category {
 	
 	@Id // primary key 
+	@NotNull
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private long id; // new attribute id
+	@Size(min=2, max=20)
 	private String name;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")

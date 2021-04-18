@@ -1,29 +1,32 @@
 package hh.swd.harjoitustyo.domain;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class GroupExercise {
 	
 	@Id // primary key 
+	@NotNull
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private long id; // new attribute id
+	@Size(min=2, max=30)
 	private String name;
+	@Size(min=2, max=1000)
 	private String desc;
+	@Size(min=2, max=10)
 	private String duration;
+	@Size(min=2, max=10)
 	private String startingTime;
+	@Size(min=2, max=10)
 	private String endingTime;
+	@Size(min=2, max=10)
 	private String date;
 	
     @ManyToOne // 

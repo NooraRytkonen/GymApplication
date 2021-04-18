@@ -3,10 +3,13 @@ package hh.swd.harjoitustyo.webcontrol;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,7 +71,7 @@ public class GroupExerciseController {
     	return groupExerciseRepository.findById(groupExerciseId);
     }      
 
-    // RESTful service to save new group execise
+    // RESTful service to save new group exercise
     @RequestMapping(value="/groupexercises", method = RequestMethod.POST)
     public @ResponseBody GroupExercise saveGroupExerciseRest(@RequestBody GroupExercise groupExercise) {	
     	return groupExerciseRepository.save(groupExercise);
@@ -80,7 +83,18 @@ public class GroupExerciseController {
     	model.addAttribute("groupExercise", new GroupExercise());
     	model.addAttribute("categories", categoryRepository.findAll()); // gets information from category
         return "addgroupexercise";
-    }    
+    }  
+    
+    // Handing input from group exercise form
+    @RequestMapping(value="/add", method=RequestMethod.POST)
+    public String greetingSubmit(@Valid GroupExercise exercise, BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) { // validation errors 
+			return "error";  // return back to form
+		} else { // no validation errors
+			model.addAttribute("exercise", exercise);
+			return "addgroupexercises";
+		}
+    }
     
     // Save new group exercise
     @RequestMapping(value = "/save", method = RequestMethod.POST)
