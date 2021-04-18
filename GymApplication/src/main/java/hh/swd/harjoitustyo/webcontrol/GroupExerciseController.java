@@ -1,12 +1,17 @@
 package hh.swd.harjoitustyo.webcontrol;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import hh.swd.harjoitustyo.domain.CategoryRepository;
 import hh.swd.harjoitustyo.domain.GroupExercise;
@@ -50,24 +55,24 @@ public class GroupExerciseController {
         return "groupexerciselist";
     }
     
-    /*
+    
     // RESTful service to get all group exercises
     @RequestMapping(value="/groupexercises", method = RequestMethod.GET)
-    public @ResponseBody List<Book> groupExerciseListRest() {	
-        return (List<GroupExercise>) repository.findAll();  
+    public @ResponseBody List<GroupExercise> groupExerciseListRest() {	
+        return (List<GroupExercise>) groupExerciseRepository.findAll();  
     }    
 
     // RESTful service to get group exercise by id  
     @RequestMapping(value="/groupexercises/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<GroupExercise> findGroupExerciseRest(@PathVariable("id") Long groupExerciseId) {	
-    	return repository.findById(groupExerciseId);
+    	return groupExerciseRepository.findById(groupExerciseId);
     }      
 
     // RESTful service to save new group execise
     @RequestMapping(value="/groupexercises", method = RequestMethod.POST)
     public @ResponseBody GroupExercise saveGroupExerciseRest(@RequestBody GroupExercise groupExercise) {	
-    	return repository.save(groupExercise);
-   */
+    	return groupExerciseRepository.save(groupExercise);
+    }
     
     // Add new group exercise
     @RequestMapping(value = "/add")

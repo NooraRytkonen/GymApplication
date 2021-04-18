@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+    	http
         .authorizeRequests().antMatchers("/css/**", "/login", "/h2-console/**").permitAll() // Enable css when logged out
         .and()
         .authorizeRequests()
@@ -33,6 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       .logout()
           .permitAll();
     }
+    
     
     @Autowired       
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
