@@ -13,11 +13,40 @@
 img {
   width: 100%;
 }
+.jumbotron {
+  display: flex;
+  align-items: center;
+  background-image: url('https://images.pexels.com/photos/3112004/pexels-photo-3112004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  color: #ffffff;
+  text-shadow: 0.25px 0.25px 0.25px #000000;
+}
+.jumbotron h2 {
+    font-size: 70px;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+}
 
+.jumbotron p {
+    font-size: 20px;
+    font-weight: 350;
+    margin: 0;
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+}
 </style>
 </head>
 <body>
 
+
+<!-- navigation bar -->
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-inverse">
  <div class="container-fluid">
@@ -34,29 +63,33 @@ img {
     <li class="nav-item">
       <a class="nav-link" href="/contact">Contact</a>
     </li>
+    <li>
     </ul>
     <div class="nav navbar-nav ml-auto">
-    <form class="navbar-form navbar-left" th:action="@{/logout}" method="post">
+    <form class="navbar-form navbar-left" th:action="@{/logout}" method="post" style="margin-left: 10px">
     <input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
     </form>
     </div>
     </div>
     </nav>
-  
-<div class="container">
-
-  <div class="jumbotron jumbotron-fluid bg-white">
-  <div class="container">
-    <h1 class="display-4">Noora's Gym</h1>
-    <br>
-    <p class="lead">In this application of imaginary gym you are able to see list of gym's group exercises and as an admin you are able to add, edit and delete exercises from the list. </p>
     
-  </div>  
-
-</div>
-  <img src="https://images.pexels.com/photos/3112004/pexels-photo-3112004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></img>
-  
-</div>
-
+   <!-- jumbotron -->
+    
+   <section class="jumbotron">
+     <div class="container">
+      <div class="row text-center">
+      <h2>Noora's Gym</h2>
+      <p>In this application of imaginary gym you are able to see list of gym's group exercises and </p><p>as an admin you are able to add, edit and delete exercises from the list.</p>  
+  </div>
+  </div>
+ </section>
+ 
+ <!-- footer -->
+ 
+<footer class="container">
+        <div class="container text-center">
+            <p>&copy; 2021 Noora Rytkönen</p>
+        </div>
+    </footer>
 </body>
 </html>

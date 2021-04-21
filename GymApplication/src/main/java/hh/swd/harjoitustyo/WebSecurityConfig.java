@@ -17,7 +17,7 @@ import hh.swd.harjoitustyo.webcontrol.UserDetailServiceImpl;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailServiceImpl userDetailsService;	
-	
+	 	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	http
@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       .logout()
           .permitAll();
     }
-    
+     
     
     @Autowired       
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

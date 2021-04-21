@@ -24,6 +24,8 @@ img {
 </head>
 <body>
 
+<!-- navigation bar -->
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-inverse">
  <div class="container-fluid">
     <div class="navbar-header">
@@ -47,6 +49,9 @@ img {
     </div>
     </div>
     </nav>
+    
+    <!-- List of group exercises. Admin can add, edit and delete group exercises. -->
+    
  <div class="jumbotron bg-white">
   <h1 class="display-4">Group Exercises</h1>
   <p class="lead" sec:authorize="hasAuthority('ADMIN')">Welcome Admin! Here you can add, edit and delete group exercises and categories. </p>
@@ -88,7 +93,7 @@ img {
 	</table>
  <a class="btn btn-success" sec:authorize="hasAuthority('ADMIN')" href="/add">Add Group Exercise</a>  
  <a class="btn btn-success" sec:authorize="hasAuthority('ADMIN')" href="/addcategory">Add Category</a>
-  <a class="btn btn-success" sec:authorize="hasAuthority('ADMIN')" href="/categorylist">See Categorylist</a>
+  <a class="btn btn-info" sec:authorize="hasAuthority('ADMIN')" href="/categorylist">See Categorylist</a>
 
   <div class="col-md-4" style="padding:20px 0">
 	</div>
